@@ -20,24 +20,15 @@ lsites.append({'label': 'All Sites', 'value': 'All Sites'})
 for site in uniquelaunchsites:
  lsites.append({'label': site, 'value': site})
 
-
-
 app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
                                         style={'textAlign': 'center', 'color': '#503D36',
                                                'font-size': 40}),
 
-
-
-
                                 dcc.Dropdown(id='site_dropdown',options=lsites,placeholder='Select a Launch Site here', searchable = True , value = 'All Sites'),
                                 html.Br(),
-
-
                                 html.Div(dcc.Graph(id='success-pie-chart')),
                                 html.Br(),
-
                                 html.P("Payload range (Kg):"),
-
                                 dcc.RangeSlider(
                                     id='payload_slider',
                                     min=0,
@@ -101,8 +92,6 @@ def update_scattergraph(site_dropdown,payload_slider):
             size='Payload Mass (kg)',
             hover_data=['Payload Mass (kg)'])
     return fig
-
-
 
 if __name__ == '__main__':
     app.run_server(debug=False)
